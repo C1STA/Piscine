@@ -6,17 +6,15 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 17:56:26 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/21 17:25:56 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/22 11:30:30 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putnbr_base(int nbr, char *base);
-
-int	ft_strlen(char *s)
+unsigned int	ft_strlen(char *s)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
 	while (s[i])
@@ -56,28 +54,23 @@ int	check_base(char *base)
 
 void	ft_putnbr_base(int nbr, char *base)
 {
+	unsigned int	nb;
+	unsigned int	len;
+
 	if (check_base(base))
 		return ;
-	if (nbr == -2147483648)
+	if (nbr < 0)
 	{
 		ft_putchar('-');
-		ft_putnbr_base((2147483648 / 10) / ft_strlen(base), base);
-		ft_putchar(base[(2147483648 / 10) % ft_strlen(base)]);
-		ft_putchar(base[8 % ft_strlen(base)]);
+		nbr *= -1;
 	}
+	nb = nbr;
+	len = ft_strlen(base);
+	if (nb < len)
+		ft_putchar(base[nb]);
 	else
 	{
-		if (nbr < 0)
-		{
-			ft_putchar('-');
-			nbr = nbr * -1;
-		}
-		if (nbr < ft_strlen(base))
-			ft_putchar(base[nbr]);
-		else
-		{
-			ft_putnbr_base(nbr / ft_strlen(base), base);
-			ft_putchar(base[(nbr % ft_strlen(base))]);
-		}
+		ft_putnbr_base(nb / len, base);
+		ft_putchar(base[(nb % len)]);
 	}
 }
