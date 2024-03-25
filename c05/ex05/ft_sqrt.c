@@ -6,7 +6,7 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 13:06:40 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/22 13:10:05 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/25 10:28:02 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,13 @@ int	ft_sqrt(int nb)
 	int	i;
 
 	i = 1;
-	while (i * i < nb)
+	while (i * i <= nb)
+	{
+		if (i * i == nb)
+			return (i);
+		if (i > 46340)
+			return (0);
 		i++;
-	if (i * i == nb)
-		return (i);
+	}
 	return (0);
 }

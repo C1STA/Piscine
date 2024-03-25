@@ -6,7 +6,7 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 13:10:39 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/22 13:38:27 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/25 10:01:17 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_is_prime(int nb)
 	i = 2;
 	if (nb < 2)
 		return (0);
-	while (i * i <= nb)
+	while (i <= nb / 2)
 	{
 		if (nb % i == 0)
 			return (0);

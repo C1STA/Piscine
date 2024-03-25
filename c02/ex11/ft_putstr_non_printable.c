@@ -6,7 +6,7 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 15:10:59 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/19 17:56:15 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/25 08:31:16 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,4 @@ void	ft_putstr_non_printable(char *str)
 			write(1, &str[i], 1);
 		i++;
 	}
-}
-
-int	main(void)
-{
-	ft_putstr_non_printable("Coucou\x7ftu vas bien ?");
-	return (0);
 }
