@@ -6,7 +6,7 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 13:03:53 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/25 15:29:20 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/25 16:19:07 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ void	print_av(char *av[])
 {
 	int	i;
 
-	i = 1;));
-	return 0;
+	i = 1;
 	while (av[i])
 	{
 		ft_putstr(av[i]);
