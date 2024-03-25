@@ -6,7 +6,7 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 13:53:59 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/23 13:57:04 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/25 10:32:09 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@ int	main(int ac, char*av[])
 {
 	if (ac > 0)
 	{
-	while (*av[0])
-		write(1, av[0]++, 1);
+		while (*av[0])
+			write(1, av[0]++, 1);
 	}
 	write(1, "\n", 1);
 	return (0);
 }
-
