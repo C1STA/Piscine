@@ -6,7 +6,7 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 12:09:52 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/26 12:51:19 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/26 15:00:38 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	get_full_size(int size, char **strs, char *sep)
 
 	i = 0;
 	len_strs = 0;
-	if (!size)
+	if (!size || size < 0)
 		return (0);
 	while (i < size)
 	{
@@ -36,7 +36,7 @@ int	get_full_size(int size, char **strs, char *sep)
 	len_sep = 0;
 	while (sep[len_sep])
 		len_sep++;
-	return (len_strs + ((size - 1) * len_sep) + 1);
+	return (len_strs + ((size - 1) * len_sep));
 }
 
 char	*ft_strjoin(int size, char **strs, char *sep)
@@ -48,12 +48,12 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	char	*dest;
 
 	len = get_full_size(size, strs, sep);
-	dest = malloc(sizeof(char) * len);
+	dest = malloc(sizeof(char) * len + 1);
 	if (!dest)
 		return (NULL);
 	i = 0;
 	k = 0;
-	while (i < size && size > 0)
+	while (i < size)
 	{
 		j = 0;
 		while (strs[i][j])
@@ -65,14 +65,4 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	}
 	dest[k] = '\0';
 	return (dest);
-}
-
-#include <stdio.h>
-int	main()
-{
-	char *s[] = { "Hello", "world", "!" };
-	char *sep = ", ";
-	char *dest = ft_strjoin(3, s, sep);
-	printf("%s\n", dest);
-	
 }
