@@ -6,7 +6,7 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 15:15:41 by dpinto            #+#    #+#             */
-/*   Updated: 2024/03/23 18:35:30 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/24 15:55:45 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	check_str(char *str)
 	return (1);
 }
 
-char	*fill(char *str, int (*pos)[4], int index)
+char	*fill(char *str, int pos[4][4], int index)
 {
 	int	i;
 	int	curr;
@@ -61,36 +61,13 @@ char	*fill(char *str, int (*pos)[4], int index)
 	return (str);
 }
 
-int	is_playable(int pos[4][4])
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	while (y < 4)
-	{
-		x = 0;
-		while (x < 4)
-		{
-			if ((y == 0 || y == 2) && \
-			(pos[y][x] + pos[y + 1][x] < 3 || pos[y][x] + pos[y + 1][x] > 5))
-				return (0);
-			x++;
-		}
-		y++;
-	}
-	return (1);
-}
-
-int	parse(char *str, int (*pos)[4])
+int	parse(char *str, int pos[4][4])
 {
 	if (!check_str(str))
 		return (0);
 	str = fill(str, pos, 0);
-	str = fill(str, pos, 3);
-	str = fill(str, pos, 2);
 	str = fill(str, pos, 1);
-	if (!is_playable)
-		return (0);
+	str = fill(str, pos, 2);
+	str = fill(str, pos, 3);
 	return (1);
 }

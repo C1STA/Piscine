@@ -6,7 +6,7 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 15:39:54 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/23 15:58:11 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/24 16:15:45 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,11 @@ void	ft_free(int **map)
 	int	i;
 
 	i = 0;
-	if (map)
+	while (i < 4)
 	{
-		while (map[i])
-		{
-			if (map[i])
-				free(map[i]);
-			i++;
-		}
-		free(map);
+		if (map[i])
+			free(map[i]);
+		i++;
 	}
+	free(map);
 }

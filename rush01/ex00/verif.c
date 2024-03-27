@@ -6,33 +6,13 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 02:22:20 by dpinto            #+#    #+#             */
-/*   Updated: 2024/03/23 15:58:39 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/24 15:52:28 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush01.h"
 
-int	check_doublon_topdown(int **map, int x, int (*pos)[4])
-{
-	int	curr_y;
-	int	next_y;
-
-	curr_y = 0;
-	while (curr_y < 3)
-	{
-		next_y = curr_y + 1;
-		while (next_y < 4)
-		{
-			if (map[curr_y][x] == map[next_y][x])
-				return (1);
-			next_y++;
-		}
-		curr_y++;
-	}
-	return (0);
-}
-
-int	verif_topdown(int **map, int x, int (*pos)[4])
+int	verif_topdown(int **map, int x, int pos[4][4])
 {
 	int	curr_y;
 	int	tower_viewed;
@@ -54,18 +34,12 @@ int	verif_topdown(int **map, int x, int (*pos)[4])
 		}
 		curr_y++;
 	}
-	if (size_tower == 4)
-	{
-		if (check_doublon_topdown(map, x, pos))
-			return (0);
-		return (pos[0][x] == tower_viewed ? 1 : 0);
-	}
-	if (pos[0][x] >= tower_viewed)
-		return (1);
-	return (0);
+	if (size_tower == 4 && pos[0][x] != tower_viewed)
+		return (0);
+	return (1);
 }
 
-int	verif_downtop(int **map, int x, int (*pos)[4])
+int	verif_downtop(int **map, int x, int pos[4][4])
 {
 	int	curr_y;
 	int	tower_viewed;
@@ -87,39 +61,12 @@ int	verif_downtop(int **map, int x, int (*pos)[4])
 		}
 		curr_y--;
 	}
-	if (size_tower == 4)
-	{
-		if (check_doublon_topdown(map, x, pos))
-			return (0);
-		return (pos[1][x] == tower_viewed ? 1 : 0);
-	}
-	if (pos[1][x] >= tower_viewed)
-		return (1);
-	return (0);
+	if (size_tower == 4 && pos[1][x] != tower_viewed)
+		return (0);
+	return (1);
 }
 
-int	check_doublon_rightleft(int **map, int y, int (*pos)[4])
-{
-	int	curr_x;
-	int	next_x;
-
-	curr_x = 0;
-	while (curr_x < 3)
-	{
-		next_x = curr_x + 1;
-		while (next_x < 4)
-		{
-			if (map[y][curr_x] == map[y][next_x])
-				return (1);
-			next_x++;
-		}
-		curr_x++;
-	}
-	return (0);
-
-}
-
-int	verif_leftright(int **map, int y, int (*pos)[4])
+int	verif_leftright(int **map, int y, int pos[4][4])
 {
 	int	curr_x;
 	int	tower_viewed;
@@ -141,18 +88,12 @@ int	verif_leftright(int **map, int y, int (*pos)[4])
 		}
 		curr_x++;
 	}
-	if (size_tower == 4)
-	{
-		if (check_doublon_rightleft(map, y, pos))
-			return (0);
-		return (pos[2][y] == tower_viewed ? 1 : 0);
-	}
-	if (pos[2][y] >= tower_viewed)
-		return (1);
-	return (0);
+	if (size_tower == 4 && pos[2][y] != tower_viewed)
+		return (0);
+	return (1);
 }
 
-int	verif_rightleft(int **map, int y, int (*pos)[4])
+int	verif_rightleft(int **map, int y, int pos[4][4])
 {
 	int	curr_x;
 	int	tower_viewed;
@@ -174,9 +115,7 @@ int	verif_rightleft(int **map, int y, int (*pos)[4])
 		}
 		curr_x--;
 	}
-	if (size_tower == 4 && check_doublon_rightleft(map, y, pos))
-		return (pos[3][y] == tower_viewed ? 1 : 0);
-	if (pos[3][y] >= tower_viewed)
-		return (1);
-	return (0);
+	if (size_tower == 4 && pos[3][y] != tower_viewed)
+		return (0);
+	return (1);
 }

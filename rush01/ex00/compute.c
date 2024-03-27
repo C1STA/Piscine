@@ -6,7 +6,7 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 01:30:47 by dpinto            #+#    #+#             */
-/*   Updated: 2024/03/23 16:13:01 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/24 15:52:28 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,22 @@ void	display_map(int **pos)
 		j = 0;
 		while (j < 4)
 		{
-			printf("%d ", pos[i][j]);
+			ft_putchar(pos[i][j] + 48);
+			if (j != 3)
+				ft_putchar(' ');
 			j++;
 		}
-		printf("\n");
+		ft_putstr("\n");
 		i++;
 	}
 }
 
-int	can_put_tower(int **map, int y, int x, int (*pos)[4])
+int	cpt(int **map, int y, int x, int pos[4][4])
 {
+	if (check_doublon_topdown(map, x))
+		return (0);
+	if (check_doublon_rightleft(map, y))
+		return (0);
 	if (!verif_rightleft(map, y, pos))
 		return (0);
 	if (!verif_leftright(map, y, pos))
@@ -43,7 +49,8 @@ int	can_put_tower(int **map, int y, int x, int (*pos)[4])
 		return (0);
 	return (1);
 }
-int	brute_force(int (*pos)[4], int **map, int n)
+
+int	brut(int pos[4][4], int **map, int n)
 {
 	int	y;
 	int	x;
@@ -51,34 +58,33 @@ int	brute_force(int (*pos)[4], int **map, int n)
 
 	if (n == 16)
 		return (1);
-	y = 0;
-	while (y < 4)
+	y = -1;
+	while (++y < 4)
 	{
-		x = 0;
-		while (x < 4)
+		x = -1;
+		while (++x < 4)
 		{
-			tower = 1;
-			while (map[y][x] == 0 && tower < 5)
+			tower = 0;
+			while (map[y][x] == 0 && ++tower < 5)
 			{
 				map[y][x] = tower;
-				if (can_put_tower(map, y, x, pos))
-					if (brute_force(pos, map, n + 1))
-						return (1);
+				if (cpt(map, y, x, pos) && brut(pos, map, n + 1))
+					return (1);
 				map[y][x] = 0;
 				if (tower == 4)
 					return (0);
-				tower++;
 			}
-			x++;
 		}
-		y++;
 	}
 	return (0);
 }
 
-int	compute(int (*pos)[4], int **map)
+int	compute(int pos[4][4], int **map)
 {
-	int r = brute_force(pos, map, 0);
-	display_map(map);
+	int	r;
+
+	r = brut(pos, map, 0);
+	if (r)
+		display_map(map);
 	return (r);
 }
