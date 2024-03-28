@@ -6,11 +6,14 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 14:24:31 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/27 15:47:17 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/28 13:07:00 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "ft_stock_str.h"
 
 void	ft_putchar(char c)
 {
@@ -25,23 +28,21 @@ void	ft_putstr(char *s)
 
 void	ft_putnbr(int nb)
 {
-	if (nb == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-		return ;
-	}
-	if (nb < 0)
+	long	nbr;
+
+	nbr = nb;
+	if (nbr < 0)
 	{
 		ft_putchar('-');
-		nb *= -1;
+		nbr *= -1;
 	}
-	if (nb > 9)
+	if (nbr > 9)
 	{
-		ft_putnbr(nb / 10);
-		ft_putchar(nb % 10 + '0');
+		ft_putnbr(nbr / 10);
+		ft_putchar(nbr % 10 + '0');
 	}
 	else
-		ft_putchar(nb + '0');
+		ft_putchar(nbr + '0');
 }
 
 void	ft_show_tab(struct s_stock_str *par)

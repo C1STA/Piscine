@@ -6,31 +6,29 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 17:36:48 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/22 11:28:03 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/28 12:32:40 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(char *str)
 {
-	int	i;
 	int	res;
 	int	sign;
 
-	i = 0;
 	res = 0;
 	sign = 1;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	while (str[i] == '-' || str[i] == '+')
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	while (*str == '-' || *str == '+')
 	{
-		if (str[i] == '-')
+		if (*str == '-')
 			sign *= -1;
-		i++;
+		str++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (*str >= '0' && *str <= '9')
 	{
-		res = res * 10 + str[i] - '0';
-		i++;
+		res = res * 10 + *str - '0';
+		str++;
 	}
 	return (res * sign);
 }

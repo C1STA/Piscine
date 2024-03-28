@@ -6,7 +6,7 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 12:55:29 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/17 12:54:23 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/28 12:27:40 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,18 @@ void	ft_putchar(char c)
 
 void	ft_putnbr(int nb)
 {
-	if (nb == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-		return ;
-	}
-	if (nb < 0)
+	long	nbr;
+
+	nbr = nb;
+	if (nbr < 0)
 	{
 		ft_putchar('-');
-		nb = nb * -1;
+		nbr *= -1;
 	}
-	if (nb > 9)
+	if (nbr > 9)
 	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
+		ft_putnbr(nbr / 10);
+		ft_putchar(nbr % 10 + '0');
 	}
 	else
 		ft_putchar(nb + '0');
