@@ -6,7 +6,7 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 15:11:51 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/30 16:32:49 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/30 18:20:22 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,8 @@ void	print_numbers(t_dict *s)
 {
 	int i = 0;
 	while (s[i].key)
+	{
+		printf("%s\n", s[i].value);
 		printf("%s\n", s[i++].key);
+	}
 }
