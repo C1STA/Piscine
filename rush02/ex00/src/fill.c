@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fill.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/30 06:04:40 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/30 16:31:28 by wacista          ###   ########.fr       */
+/*   Created: 2024/03/30 16:16:58 by wacista           #+#    #+#             */
+/*   Updated: 2024/03/30 16:32:54 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush_02.h"
 
-int	main(int ac, char *av[])
+struct s_dict	*fill_data(char **src)
 {
-	char	**dict;
 	t_dict	*s;
 
-	if (ac != 2 && ac != 3)
-		return (ft_putstr_error("Error\n"), 1);
-	dict = get_dictionary(ac, av);
-	if (!dict)
-		return (2);
-	if (!parsing(dict))
-		return (3);
-	s = fill_data(dict);
+	s = fill_numbers(src);
 	if (!s)
-		return (4);
-	print_numbers(s);
-	free_key(s);
-	free(s);
-	free_split(dict);
-	return (0);
+		return (free_split(src), ft_putstr_error("Error\n"), NULL);
+	return (s);
 }
