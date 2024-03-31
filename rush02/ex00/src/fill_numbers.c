@@ -6,7 +6,7 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 15:11:51 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/31 04:12:37 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/31 15:06:52 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,13 @@ char	*fill_key(char *s)
 	if (!dest)
 		return (NULL);
 	i = 0;
-	while (s[j] >= '0' && s[j] <= '9')
-		dest[i++] = s[j++];
-	dest[i] = '\0';
+	while ((s[i] >= 9 && s[i] <= 13) || s[i] == 32)
+		i++;
+	if (s[i] == '+')
+		i++;
+	while (s[i] >= '0' && s[i] <= '9')
+		dest[j++] = s[i++];
+	dest[j] = '\0';
 	return (dest);
 }
 
