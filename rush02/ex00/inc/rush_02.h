@@ -6,7 +6,7 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 05:50:53 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/31 04:23:51 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/31 04:38:37 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ char			*ft_itoa(int nbr);
 char			*ft_strndup(char *str, int size);
 void			free_keys_value(t_keys *keys, int j);
 void			free_keys(t_keys *keys);
+t_keys			*define_keys(void);
 
 #endif

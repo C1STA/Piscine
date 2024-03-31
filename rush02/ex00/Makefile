@@ -13,7 +13,8 @@ SRC = src/main.c \
 		src/fill_values.c \
 		src/fill_numbers.c \
 		src/parse_numbers.c \
-		src/get_dictionary.c
+		src/get_dictionary.c \
+		src/dictionary_reference.c
 
 INC = -I inc/
 
@@ -26,9 +27,6 @@ $(NAME) : $(OBJ)
 
 %.o : %.c
 			$(CC) $(INC) -c $< -o $@
-
-valgrind :
-			valgrind --leak-check=full --track-fds=yes -s ./$(NAME)
 
 clean :
 		rm -f $(OBJ)
