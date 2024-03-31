@@ -3,7 +3,6 @@ NAME = rush-02
 CC = cc -Wall -Wextra -Werror -g
 
 SRC = src/main.c \
-		src/fill.c \
 		src/free.c \
 		src/utils.c \
 		src/utils2.c \
@@ -14,6 +13,7 @@ SRC = src/main.c \
 		src/fill_numbers.c \
 		src/parse_numbers.c \
 		src/get_dictionary.c \
+		src/parse_and_fill.c \
 		src/dictionary_reference.c
 
 INC = -I inc/

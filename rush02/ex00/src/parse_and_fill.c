@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill.c                                             :+:      :+:    :+:   */
+/*   parse_and_fill.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 16:16:58 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/31 04:58:01 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/31 05:27:30 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,26 @@ bool	is_key(t_dict *s, t_keys *keys)
 	return (true);
 }
 
+bool	are_double_values(t_dict *s)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (s[i].value)
+	{
+		j = 0;
+		while (s[j].value)
+		{
+			if (i != j && !ft_strcmp(s[i].value, s[j].value))
+				return (false);
+			j++;
+		}
+		i++;
+	}
+	return (true);
+}
+
 struct s_dict	*fill_data(char **src)
 {
 	int		n;
@@ -63,6 +83,9 @@ struct s_dict	*fill_data(char **src)
 		return (free_split(src), ft_putstr_err("Dict Error\n"), NULL);
 	if (n < 0)
 		return (free_split(src), ft_putstr_err("Error\n"), NULL);
+	if (!are_double_values(s))
+		return (free_split(src), \
+		free_dict(s), ft_putstr_err("Dict Error\n"), NULL);
 	keys = define_keys();
 	if (!keys)
 		return (free_split(src), free_dict(s), ft_putstr_err("Error\n"), NULL);
