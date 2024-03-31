@@ -6,7 +6,7 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 15:11:51 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/30 18:20:22 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/31 00:56:41 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	len_key(char *s)
 
 	i = 0;
 	len = 0;
-
 	while ((s[i] >= 9 && s[i] <= 13) || s[i] == 32)
 		i++;
 	if (s[i] == '+')
@@ -87,7 +86,9 @@ struct s_dict	*fill_numbers(char **src)
 
 void	print_numbers(t_dict *s)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
 	while (s[i].key)
 	{
 		printf("%s\n", s[i].value);
