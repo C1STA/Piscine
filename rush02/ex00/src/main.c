@@ -6,11 +6,23 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 06:04:40 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/30 18:24:15 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/31 04:24:52 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush_02.h"
+
+void	print_numbers(t_dict *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i].key)
+	{
+		printf("%s\n", s[i].value);
+		printf("%s\n", s[i++].key);
+	}
+}
 
 int	main(int ac, char *av[])
 {
@@ -18,7 +30,7 @@ int	main(int ac, char *av[])
 	t_dict	*s;
 
 	if (ac != 2 && ac != 3)
-		return (ft_putstr_error("Error\n"), 1);
+		return (ft_putstr_err("Error\n"), 1);
 	dict = get_dictionary(ac, av);
 	if (!dict)
 		return (2);
@@ -28,7 +40,6 @@ int	main(int ac, char *av[])
 	if (!s)
 		return (4);
 	free_split(dict);
-	print_numbers(s);
 	free_struct(s);
 	return (0);
 }

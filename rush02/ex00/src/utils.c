@@ -6,7 +6,7 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 07:18:13 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/30 15:06:18 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/31 04:24:35 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_putstr(char *s)
 		write(1, s++, 1);
 }
 
-void	ft_putstr_error(char *s)
+void	ft_putstr_err(char *s)
 {
 	while (*s)
 		write(2, s++, 1);

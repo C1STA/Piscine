@@ -6,7 +6,7 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 15:11:51 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/31 00:56:41 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/31 04:12:37 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,16 +82,4 @@ struct s_dict	*fill_numbers(char **src)
 	s[i].key = NULL;
 	s[i].value = NULL;
 	return (s);
-}
-
-void	print_numbers(t_dict *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i].key)
-	{
-		printf("%s\n", s[i].value);
-		printf("%s\n", s[i++].key);
-	}
 }

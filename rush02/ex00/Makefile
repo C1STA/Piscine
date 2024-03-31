@@ -7,6 +7,7 @@ SRC = src/main.c \
 		src/free.c \
 		src/utils.c \
 		src/utils2.c \
+		src/free_2.c \
 		src/parsing.c \
 		src/ft_split.c \
 		src/fill_values.c \
