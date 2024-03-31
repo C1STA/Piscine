@@ -6,7 +6,7 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 15:05:18 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/31 03:50:16 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/31 04:47:09 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,18 @@ char	*ft_strndup(char *str, int size)
 	}
 	dest[i] = '\0';
 	return (dest);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] || s2[i])
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (0);
 }

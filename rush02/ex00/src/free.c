@@ -6,7 +6,7 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 14:29:44 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/30 18:23:38 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/31 04:55:07 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	free_key(t_dict *s)
 		free(s[i++].key);
 }
 
-void	free_struct(t_dict *s)
+void	free_dict(t_dict *s)
 {
 	int	i;
 

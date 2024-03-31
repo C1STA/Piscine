@@ -6,7 +6,7 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 06:04:40 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/31 04:24:52 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/31 04:55:07 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ int	main(int ac, char *av[])
 	if (!s)
 		return (4);
 	free_split(dict);
-	free_struct(s);
+	free_dict(s);
 	return (0);
 }
