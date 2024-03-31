@@ -6,7 +6,7 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 07:18:13 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/31 04:24:35 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/31 19:46:24 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	len = (i + j + 1);
 	dest = malloc(sizeof(char) * len);
 	if (!dest)
-		return (NULL);
+		return (ft_free_str(&s1), NULL);
 	i = 0;
 	j = 0;
 	while (s1[i])

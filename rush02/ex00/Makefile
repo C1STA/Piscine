@@ -11,6 +11,7 @@ SRC = src/main.c \
 		src/ft_split.c \
 		src/fill_values.c \
 		src/fill_numbers.c \
+		src/process.c \
 		src/parse_numbers.c \
 		src/get_dictionary.c \
 		src/parse_and_fill.c \

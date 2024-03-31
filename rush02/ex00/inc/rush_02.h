@@ -6,7 +6,7 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 05:50:53 by wacista           #+#    #+#             */
-/*   Updated: 2024/03/31 05:18:11 by wacista          ###   ########.fr       */
+/*   Updated: 2024/03/31 23:56:26 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,16 @@ typedef struct s_keys
 	char			*key;
 	int				count;
 }	t_keys;
+
+typedef struct s_process
+{
+	char	*tmp;
+	int		i;
+	char	tmp2[3];
+	char	tmp3[2];
+	char	tmp4[2];
+	char	tmp5[3];
+}	t_process;
 
 void			ft_putchar(char c);
 void			ft_putstr(char *s);
@@ -56,5 +66,6 @@ t_keys			*define_keys(void);
 int				ft_strcmp(char *s1, char *s2);
 void			free_all(t_dict *s, t_keys *keys, char **src);
 bool			are_double_values(t_dict *s);
+void			process(t_dict *s, char *nb);
 
 #endif
