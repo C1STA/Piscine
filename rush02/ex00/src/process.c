@@ -6,7 +6,7 @@
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 22:12:21 by wacista           #+#    #+#             */
-/*   Updated: 2024/04/01 00:34:22 by wacista          ###   ########.fr       */
+/*   Updated: 2024/04/02 03:14:57 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,13 @@ void	modulo_two(t_dict *s, char *nb, int len)
 		t.tmp5[1] = '0';
 		t.tmp5[2] = '\0';
 		num_to_word(s, t.tmp5);
-		ft_putchar(' ');
-		t.tmp3[0] = t.tmp2[1];
-		t.tmp3[1] = '\0';
-		num_to_word(s, t.tmp3);
+		if (t.tmp2[1] != '0')
+		{
+			ft_putchar(' ');
+			t.tmp3[0] = t.tmp2[1];
+			t.tmp3[1] = '\0';
+			num_to_word(s, t.tmp3);
+		}
 	}
 	else
 		num_to_word(s, t.tmp2);
@@ -60,8 +63,6 @@ void	modulo_two(t_dict *s, char *nb, int len)
 		num_to_word(s, t.tmp);
 		ft_putchar(' ');
 		free(t.tmp);
-		if (t.tmp2[1] == '0')
-			return ;
 		process(s, nb + 2);
 	}
 }
@@ -73,9 +74,9 @@ void	modulo_one(t_dict *s, char *nb, int len)
 	t.tmp3[0] = nb[0];
 	t.tmp3[1] = '\0';
 	num_to_word(s, t.tmp3);
-	ft_putchar(' ');
 	if (len != 1)
 	{
+		ft_putchar(' ');
 		t.tmp = (char *)malloc(sizeof(char) * len + 1);
 		if (!t.tmp)
 			return ;
@@ -85,13 +86,9 @@ void	modulo_one(t_dict *s, char *nb, int len)
 			t.tmp[t.i++] = '0';
 		t.tmp[t.i] = '\0';
 		num_to_word(s, t.tmp);
+		ft_putchar(' ');
 		free(t.tmp);
 	}
-	if (len == 1)
-		return ;
-	ft_putchar(' ');
-	if (nb[1] == '0')
-		return ;
 	process(s, nb + 1);
 }
 
@@ -152,12 +149,10 @@ void	process(t_dict *s, char *nb)
 	len = ft_strlen(nb);
 	if (!len)
 		return ;
+	if (len == 2 && nb[0] == '0' && nb[1] == '0')
+		return ;
 	if (len > 1 && nb[0] == '0')
-	{
-		if (nb[1] == '\0')
-			return ;
 		process(s, nb + 1);
-	}
 	else if (len %  3 == 0)
 		modulo_zero(s, nb, len);
 	else if (len % 3 == 1)
