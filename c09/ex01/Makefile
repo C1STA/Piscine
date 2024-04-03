@@ -1,7 +1,6 @@
 NAME = libft.a
 
-GCC =	gcc
-CFLAGS = -Wall -Werror -Wextra
+GCC =	gcc -Wall -Wextra -Werror
 
 SRCS =	srcs/ft_putchar.c \
 		srcs/ft_swap.c \
@@ -19,8 +18,8 @@ RM =	rm -f
 
 all:	$(NAME)
 
-srcs/%.o: srcs/%.c
-		$(GCC) $(CFLAGS) $(INC) -c $< -o $@
+%.o: %.c
+		$(GCC) $(INC) -c $< -o $@
 
 $(NAME): $(OBJS)
 		$(AR) $(NAME) $(OBJS)
