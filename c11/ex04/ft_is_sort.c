@@ -1,45 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   ft_is_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/03 18:10:43 by wacista           #+#    #+#             */
-/*   Updated: 2024/04/04 03:47:29 by wacista          ###   ########.fr       */
+/*   Created: 2024/04/04 04:14:05 by wacista           #+#    #+#             */
+/*   Updated: 2024/04/04 04:45:08 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_count_if(char **tab, int length, int (*f)(char*))
+int	ft_is_sort(int *tab, int length, int (*f)(int, int))
 {
 	int	i;
-	int	count;
+	int	asc;
+	int	desc;
 
 	i = 0;
-	count = 0;
-	while (i < length)
+	asc = 1;
+	desc = 1;
+	while (i < length - 1)
 	{
-		if (f(tab[i]))
-			count++;
+		if (f(tab[i], tab[i + 1]) > 0)
+			asc = 0;
+		else if (f(tab[i], tab[i + 1]) < 0)
+			desc = 0;
 		i++;
 	}
-	return (count);
+	return (asc || desc);
 }
 
 /* #include <stdio.h>
-int	is_n(char *s)
+int	compare(int a, int b)
 {
-	int	i = 0;
-	while (s[i])
-	{
-		if (s[i] == 'n')
-			return (1);
-		i++;
-	}
-	return (0);
+	return (a - b);
 }
-int	main(int ac, char *av[])
+int main(void)
 {
-	(void)ac;
-	printf("%d\n", ft_count_if(av, 5, &is_n));
+	int tab[] = {1, 2, 3, 3, 5};
+	printf("%d\n", ft_is_sort(tab, 5, &compare));
+	return (0);
 } */

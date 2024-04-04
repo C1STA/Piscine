@@ -1,16 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/15 12:55:29 by wacista           #+#    #+#             */
-/*   Updated: 2024/04/04 07:50:04 by wacista          ###   ########.fr       */
+/*   Created: 2024/04/04 04:57:22 by wacista           #+#    #+#             */
+/*   Updated: 2024/04/04 06:59:39 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "do_op.h"
+
+void	ft_putstr(char *str)
+{
+	while (*str)
+		write(1, str++, 1);
+}
 
 void	ft_putchar(char c)
 {
@@ -34,4 +40,27 @@ void	ft_putnbr(int nb)
 	}
 	else
 		ft_putchar(nbr + '0');
+}
+
+int	ft_atoi(char *str)
+{
+	int	res;
+	int	sign;
+
+	res = 0;
+	sign = 1;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	while (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign *= -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		res = res * 10 + *str - '0';
+		str++;
+	}
+	return (res * sign);
 }

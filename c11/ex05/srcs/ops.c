@@ -1,45 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   ops.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/03 18:10:43 by wacista           #+#    #+#             */
-/*   Updated: 2024/04/04 03:47:29 by wacista          ###   ########.fr       */
+/*   Created: 2024/04/04 06:01:06 by wacista           #+#    #+#             */
+/*   Updated: 2024/04/04 06:48:21 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_count_if(char **tab, int length, int (*f)(char*))
-{
-	int	i;
-	int	count;
+#include "do_op.h"
 
-	i = 0;
-	count = 0;
-	while (i < length)
-	{
-		if (f(tab[i]))
-			count++;
-		i++;
-	}
-	return (count);
+void	ft_add(int a, int b)
+{
+	ft_putnbr(a + b);
 }
 
-/* #include <stdio.h>
-int	is_n(char *s)
+void	ft_sub(int a, int b)
 {
-	int	i = 0;
-	while (s[i])
-	{
-		if (s[i] == 'n')
-			return (1);
-		i++;
-	}
-	return (0);
+	ft_putnbr(a - b);
 }
-int	main(int ac, char *av[])
+
+void	ft_mul(int a, int b)
 {
-	(void)ac;
-	printf("%d\n", ft_count_if(av, 5, &is_n));
-} */
+	ft_putnbr(a * b);
+}
+
+void	ft_div(int a, int b)
+{
+	if (!b)
+		return (ft_putstr("Stop : division by zero"));
+	ft_putnbr(a / b);
+}
+
+void	ft_mod(int a, int b)
+{
+	if (!b)
+		return (ft_putstr("Stop : modulo by zero"));
+	ft_putnbr(a % b);
+}

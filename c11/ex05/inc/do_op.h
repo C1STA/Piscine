@@ -1,45 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   do_op.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wacista <wacista@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/03 18:10:43 by wacista           #+#    #+#             */
-/*   Updated: 2024/04/04 03:47:29 by wacista          ###   ########.fr       */
+/*   Created: 2024/04/04 04:50:38 by wacista           #+#    #+#             */
+/*   Updated: 2024/04/04 06:47:11 by wacista          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_count_if(char **tab, int length, int (*f)(char*))
-{
-	int	i;
-	int	count;
+#ifndef DO_OP_H
+# define DO_OP_H
 
-	i = 0;
-	count = 0;
-	while (i < length)
-	{
-		if (f(tab[i]))
-			count++;
-		i++;
-	}
-	return (count);
-}
+# include <unistd.h>
 
-/* #include <stdio.h>
-int	is_n(char *s)
-{
-	int	i = 0;
-	while (s[i])
-	{
-		if (s[i] == 'n')
-			return (1);
-		i++;
-	}
-	return (0);
-}
-int	main(int ac, char *av[])
-{
-	(void)ac;
-	printf("%d\n", ft_count_if(av, 5, &is_n));
-} */
+int		ft_atoi(char *str);
+void	ft_putnbr(int nb);
+void	ft_putstr(char *str);
+void	ft_putchar(char c);
+void	ft_add(int a, int b);
+void	ft_sub(int a, int b);
+void	ft_mul(int a, int b);
+void	ft_div(int a, int b);
+void	ft_mod(int a, int b);
+void	ft_do_op(char *a, char *op, char *b);
+
+#endif
